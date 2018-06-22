@@ -97,15 +97,16 @@ func onReady() {
 		systray.SetTooltip("Estimated time to reach home")
 		mVisit := systray.AddMenuItem("Open MyDrive map", "Visit the MyDrive map to see the route in details")
 		systray.AddSeparator()
+		mVisitHomePage := systray.AddMenuItem("Homepage", "Visit the ap home page")
 		mQuit := systray.AddMenuItem("Quit", "Quit the whole app")
 		for {
 			select {
 			case <-mVisit.ClickedCh:
-				fmt.Println("Visit requested")
 				open.Run(linkToVisit)
+			case <-mVisitHomePage.ClickedCh:
+				open.Run("https://github.com/milanaleksic/timetohome")
 			case <-mQuit.ClickedCh:
 				systray.Quit()
-				fmt.Println("Quit now...")
 				return
 			}
 		}
