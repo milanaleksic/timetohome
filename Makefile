@@ -15,5 +15,9 @@ $(MAIN_APP_DIR)/$(APP_NAME): $(SOURCES) $(BINDATA_DEBUG_FILE)
 
 include gomakefiles/semaphore.mk
 
+.PHONY: prepare
+prepare:
+	@sudo apt-get install libgtk-3-dev libappindicator3-dev
+
 .PHONY: clean
-	clean: clean_common
+clean: clean_common
