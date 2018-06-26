@@ -32,7 +32,7 @@ Argument start is not set
 sudo apt-get install libgtk-3-dev libappindicator3-dev
 ```
 
-### Installation (preconditions) 
+### Installation (after preconditions have been installed)
 
 ```
 go get github.com/milanaleksic/
