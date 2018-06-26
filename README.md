@@ -1,5 +1,7 @@
 # timetohome
 
+[![Build Status](https://semaphoreci.com/api/v1/milanaleksic/timetohome/branches/master/badge.svg)](https://semaphoreci.com/milanaleksic/timetohome)
+
 Compiled using **Go 1.10** and verified only on **Ubuntu 16.04LTS**.
 
 Result: you get an icon in the systray with a time estimated to reach home (including traffic). 
