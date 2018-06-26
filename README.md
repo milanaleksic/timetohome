@@ -35,6 +35,6 @@ sudo apt-get install libgtk-3-dev libappindicator3-dev
 ### Installation (after preconditions have been installed)
 
 ```
-go get github.com/milanaleksic/
+go get github.com/milanaleksic/timetohome
 ```
 
