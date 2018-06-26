@@ -10,7 +10,7 @@ SOURCES := iconunix.go iconwin.go $(shell find $(SOURCEDIR) -name '*.go' \
 
 $(APP_NAME): $(MAIN_APP_DIR)/$(APP_NAME)
 
-$(MAIN_APP_DIR)/$(APP_NAME): $(SOURCES) $(BINDATA_DEBUG_FILE)
+$(MAIN_APP_DIR)/$(APP_NAME): $(SOURCES)
 		cd $(MAIN_APP_DIR)/ && go build -ldflags '-X main.Version=${VERSION}' -o ${APP_NAME}
 
 include gomakefiles/semaphore.mk
@@ -29,6 +29,8 @@ iconwin.go:
 prepare: 
 	@sudo apt-get install libgtk-3-dev libappindicator3-dev -y
 	@go get github.com/cratonica/2goarray
+	@$(MAKE) iconunix.go iconwin.go
 
 .PHONY: clean
 clean: clean_common
+	@rm icon*.go || true
