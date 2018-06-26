@@ -30,7 +30,11 @@ Argument start is not set
         Coordinate of the starting point (like 50.138197,2.273150)
 ```
 
-## Installation
+## Installing
+
+You can find available releases here: https://github.com/milanaleksic/timetohome/releases
+
+## Compiling from source
 
 ### Preconditions 
 
