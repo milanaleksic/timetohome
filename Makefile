@@ -17,7 +17,7 @@ include gomakefiles/semaphore.mk
 
 .PHONY: prepare
 prepare:
-	@sudo apt-get install libgtk-3-dev libappindicator3-dev
+	@sudo apt-get install libgtk-3-dev libappindicator3-dev -y
 
 .PHONY: clean
 clean: clean_common
