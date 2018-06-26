@@ -9,7 +9,11 @@ Result: you get an icon in the systray with a time estimated to reach home (incl
 There is also a link you can click on to get a more detailed map to see the reason for delay 
 (you need to get the link manually though to choose the perspective etc).
 
-## Usage:
+## Usage
+
+**Note**: You need to get an API key from https://developer.tomtom.com for an application
+which uses "*Online Routing*" API product. This is free as long as you keep calling the API
+couple of times per minute (like I am doing in the app, every 30 sec).
 
 ```
 $ timetohome 
