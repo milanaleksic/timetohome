@@ -13,9 +13,9 @@ There is also a link you can click on to get a more detailed map to see the reas
 
 ## Usage
 
-**Note**: You need to get an API key from https://developer.tomtom.com for an application
-which uses "*Online Routing*" API product. This is free as long as you keep calling the API
-couple of times per minute (like I am doing in the app, every 30 sec).
+**Note**: You will need to get an API key from the website https://developer.tomtom.com for an application
+which uses "*Online Routing*" API product. Usage of the API is free as long as you keep calling the API
+only couple of times per minute (like I am doing in the app, every 30 sec).
 
 ```
 $ timetohome 
