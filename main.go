@@ -58,8 +58,12 @@ func check() {
 }
 
 func process() {
-	timeToHome := getTimeToHome()
-	systray.SetTitle(fmt.Sprintf("%d min", timeToHome/60))
+	timeToHome, err := getTimeToHome()
+	if err != nil {
+		systray.SetTitle(fmt.Sprintf("Error: %v", err))
+	} else {
+		systray.SetTitle(fmt.Sprintf("%d min", timeToHome/60))
+	}
 }
 
 type Response struct {
@@ -70,11 +74,11 @@ type Response struct {
 	} `json:"routes"`
 }
 
-func getTimeToHome() (seconds int) {
+func getTimeToHome() (seconds int, err error) {
 	resp, err := http.Get(fmt.Sprintf("https://api.tomtom.com/routing/1/calculateRoute/%s:%s/json?key=%s", start, end, apiKey))
 	if err != nil {
 		log.Printf("Failed to reach remote server: %v", err)
-		return -1
+		return -1, err
 	}
 	defer resp.Body.Close()
 
@@ -84,10 +88,14 @@ func getTimeToHome() (seconds int) {
 	err = decoder.Decode(&response)
 	if err != nil {
 		log.Printf("Failed to decode response: %v", err)
-		return -1
+		return -1, err
+	}
+	if len(response.Routes) == 0 {
+		log.Printf("No routes received!")
+		return -1, err
 	}
 
-	return response.Routes[0].Summary.TravelTimeInSeconds
+	return response.Routes[0].Summary.TravelTimeInSeconds, nil
 }
 
 func onReady() {
