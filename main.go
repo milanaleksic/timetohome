@@ -62,7 +62,9 @@ func process() {
 	if err != nil {
 		systray.SetTitle(fmt.Sprintf("Error: %v", err))
 	} else {
-		systray.SetTitle(fmt.Sprintf("%d min", timeToHome/60))
+		msg := fmt.Sprintf("%d min", timeToHome/60)
+		log.Println(msg)
+		systray.SetTitle(msg)
 	}
 }
 
